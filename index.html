@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CLOCK</title>
+    <link rel="icon" type="image/x-icon" href="https://play-lh.googleusercontent.com/JRd05pyBH41qjgsJuWduRJpDeZG0Hnb0yjf2nWqO7VaGKL10-G5UIygxED-WNOc3pg">
+    <style>
+        .der
+{
+    font-size: 80px;
+   text-align: center;
+   font-family: 'Amatic SC', cursive;
+   color: rgb(111, 238, 7);
+   align-items: center;
+   justify-content: center;
+   display: flex;
+
+}
+
+body{
+    background-image: url('https://ih1.redbubble.net/image.2327148674.0850/clkf,bamboo,black,600x600-bg,f8f8f8.jpg');
+   background-repeat: no-repeat;
+   background-position: center;
+   object-fit: contain;
+   justify-content: center;
+   align-items: center;
+   height: 100vh;
+   width: 100%;
+   display: flex;
+   padding: 0;
+   margin: 0;
+}
+
+@media only screen and (max-width:992px){
+    
+    .der{
+
+        font-size: 45px;
+        color:rgb(216, 0, 0);
+
+    }
+
+    body{
+      
+        height:100vh;
+        width: auto;
+    }
+
+}
+@media only screen and (max-width:340px) {
+    
+    .der{
+
+        font-size: 45px;
+        color:rgb(0, 102, 235);
+
+    }
+
+
+}
+    </style>
+</head>
+<body>
+    <div class="der" id = "clock" onload="currentTime()"></div>
+<script>function currentTime() {
+    let date = new Date(); 
+    let hh = date.getHours();
+    let mm = date.getMinutes();
+    let ss = date.getSeconds();
+    let session = "AM";
+  
+    if(hh === 0){
+        hh = 12;
+    }
+    if(hh > 12){
+        hh = hh - 12;
+        session = "PM";
+     }
+  
+     hh = (hh < 10) ? "0" + hh : hh;
+     mm = (mm < 10) ? "0" + mm : mm;
+     ss = (ss < 10) ? "0" + ss : ss;
+      
+     let time = hh + ":" + mm + ":" + ss + " " + session;
+  
+    document.getElementById("clock").innerText = time; 
+    let t = setTimeout(function(){ currentTime() }, 1000);
+  }
+  
+  currentTime();</script>
+</body>
+</html>
